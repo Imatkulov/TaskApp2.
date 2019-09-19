@@ -1,6 +1,9 @@
 package com.taskapp2;
 
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -39,22 +42,32 @@ public class BoardFragment extends Fragment {
                 textTitle.setText("Привет");
                 textDesc.setText("Добро пожаловать в Андроид мир");
                 imageView.setImageResource(R.drawable.smile1);
-                view.setBackgroundColor(getResources().getColor(R.color.colorBlue));
-                button.setVisibility(view.INVISIBLE);
+                button.setBackgroundColor(getResources().getColor(R.color.colorBlue));
+                button.setVisibility(View.INVISIBLE);
                 break;
             case 1:
                 textTitle.setText("Как дела?");
                 textDesc.setText("Second page");
                 imageView.setImageResource(R.drawable.smile2);
                 view.setBackgroundColor(getResources().getColor(R.color.colorGreen));
-                button.setVisibility(view.INVISIBLE);
+                button.setVisibility(View.GONE);
                 break;
             case 2:
                 textTitle.setText("Что делаешь?");
                 textDesc.setText("Что делаешь мир ?");
                 imageView.setImageResource(R.drawable.smile3);
                 view.setBackgroundColor(getResources().getColor(R.color.colorYellow));
-                button.setVisibility(view.VISIBLE);
+                button.setVisibility(View.VISIBLE);
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        SharedPreferences preferences = getActivity().getSharedPreferences("settings", Context.MODE_PRIVATE);
+                        preferences.edit().putBoolean("isShown", true).apply();
+                        startActivity(new Intent(getContext(), MainActivity.class));
+                        getActivity().finish();
+
+                    }
+                });
                 break;
         }
         return view;

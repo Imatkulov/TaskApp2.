@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/action_sign_out"
+        android:icon="@drawable/ic_exit"
+        app:showAsAction="ifRoom"
+        android:title="sign out"/>
+
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/delete1"
+        android:orderInCategory="100"
+        android:title="Очистка"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/btn_sort"
+        android:orderInCategory="100"
+        android:title="Сортировать"
+        app:showAsAction="never"/>
 </menu>

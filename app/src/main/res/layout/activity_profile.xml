@@ -1,37 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".FormActivity">
+    android:orientation="vertical"
+    tools:context=".ProfileActivity">
 
     <EditText
-        android:id="@+id/editTitle"
+        android:id="@+id/editName"
         android:background="@drawable/bg_edit_stroke"
-        android:padding="8dp"
+        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Задача"
-        android:inputType="textCapSentences"/>
+        android:hint="ФИО"/>
 
     <EditText
-        android:id="@+id/editDesc"
+        android:id="@+id/editPhone"
+        android:padding="10dp"
         android:background="@drawable/bg_edit_stroke"
-        android:padding="8dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textCapSentences"
-        android:hint="Описание"/>
+        android:hint="номер"
+        android:layout_height="wrap_content"/>
 
     <Button
-        android:id="@+id/button_save"
+        android:id="@+id/btnSave"
         android:background="@drawable/bg_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onSave"
-        android:text="Save"/>
+        android:text="Сохранить"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:layout_gravity="center"/>
 
 </LinearLayout>
