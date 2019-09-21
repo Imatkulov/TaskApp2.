@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -62,6 +64,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
      TaskAdapter adapter;
      List<Task> list;
+     ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,11 +109,26 @@ public class MainActivity extends AppCompatActivity
                 startActivity(new Intent(MainActivity.this, ProfileActivity.class));
             }
         });
+        imageView = headerview.findViewById(R.id.imageView);
 
         InitList();
-
         initFile();
     }
+
+    @Override
+    protected void onResume() {
+        String avatar = getSharedPreferences("preferences", MODE_PRIVATE).getString("avatar","");
+        if (avatar !=""){
+            Glide.with(this).load(avatar).apply(RequestOptions.circleCropTransform()).into(imageView);
+        }
+        super.onResume();
+    }
+
+    //    private void showAvatar(String avatar) {
+//        String avatar = getSharedPreferences(showAvatar(imageView);)
+//        Glide.with(this).load(avatar).apply(RequestOptions.circleCropTransform()).into(imageView);
+//
+//    }
 
     @AfterPermissionGranted(199)
     private void initFile() {

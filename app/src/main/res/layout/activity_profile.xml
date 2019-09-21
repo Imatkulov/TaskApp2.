@@ -9,6 +9,14 @@
     android:orientation="vertical"
     tools:context=".ProfileActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:onClick="onClickImage"
+        android:src="@mipmap/ic_launcher_round"/>
+
     <EditText
         android:id="@+id/editName"
         android:background="@drawable/bg_edit_stroke"
