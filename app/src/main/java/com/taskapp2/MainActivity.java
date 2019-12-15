@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity
     protected void onResume() {
         String avatar = getSharedPreferences("preferences", MODE_PRIVATE).getString("avatar","");
         if (avatar !=""){
-            Glide.with(this).load(avatar).apply(RequestOptions.circleCropTransform()).into(imageView);
+         //   Glide.with(this).load(avatar).apply(RequestOptions.circleCropTransform()).into(imageView);
         }
         super.onResume();
     }

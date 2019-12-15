@@ -37,9 +37,6 @@
             android:text="@string/hello_blank_fragment" />
     </LinearLayout>
 
-
-
-
     <Button
         android:id="@+id/button"
         android:text="Start"

@@ -36,7 +36,7 @@ public class BoardFragment extends Fragment {
         TextView textDesc = view.findViewById(R.id.textDesc);
         ImageView imageView = view.findViewById(R.id.imageView);
         Button button = view.findViewById(R.id.button);
-        int pos =getArguments().getInt("pos");
+        int pos = getArguments().getInt("pos");
         switch (pos){
             case 0:
                 textTitle.setText("Привет");

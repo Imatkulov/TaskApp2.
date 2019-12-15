@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,9 +37,7 @@ import java.util.Map;
 public class ProfileActivity extends AppCompatActivity {
 
     private final int REQUEST_GALLERY = 100;
-
     private Uri uri;
-
     EditText editText;
     EditText editPhone;
     ProgressBar progressBar;
@@ -47,11 +46,11 @@ public class ProfileActivity extends AppCompatActivity {
     SharedPreferences settings;
     ImageView imageView;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        if (getSupportActionBar()!=null)getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         settings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 
@@ -79,11 +78,11 @@ public class ProfileActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful() && task.getResult() != null) {
                             String name = task.getResult().getString("name");
-                            String phone = task.getResult().getString("phone");
                             editText.setText(name);
+//                            String phone = task.getResult().getString("phone");
+//                            editText.setText(phone);
                             String avatar = task.getResult().getString("avatar");
                             showAvatar(avatar);
-//                            editText.setText(phone);
                         }
                     }
                 });
@@ -179,6 +178,13 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
      }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId()==android.R.id.home){
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 
     //        SharedPreferences sharedPreferences = getSharedPreferences("preferences",   MODE_PRIVATE);

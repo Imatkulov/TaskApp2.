@@ -15,7 +15,6 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="-23dp" />
-
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/Tab_layout"
         android:layout_width="match_parent"

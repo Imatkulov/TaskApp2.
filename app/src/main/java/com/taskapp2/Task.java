@@ -15,7 +15,6 @@ public class Task implements Serializable {
 
 
     public Task (){
-
     }
 
     @Ignore
